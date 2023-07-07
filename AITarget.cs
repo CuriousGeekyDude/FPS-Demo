@@ -6,6 +6,8 @@ public class AITarget : MonoBehaviour
 {
     
     [SerializeField] private float valueOfDisplacementZ = 0.1f;
+    [SerializeField] private GameObject fireballPrefab = null;
+    private GameObject fireball;
     [SerializeField] private bool isAlive = true;
 
     private IEnumerator die()
@@ -26,11 +28,21 @@ public class AITarget : MonoBehaviour
     {
         if(isAlive == true) {
 
-            this.transform.Translate(0, 0, valueOfDisplacementZ);
+            this.transform.Translate(0, 0, valueOfDisplacementZ*Time.deltaTime);
             Ray ray = new Ray(this.transform.position, this.transform.forward);
             RaycastHit hit;
 
             if(Physics.SphereCast(ray, 1f ,out hit)) {
+                
+                if(hit.transform.GetComponent<PlayerChar>()) {
+                    if(fireball == null) {
+                        Vector3 fireballPosition = this.transform.position;
+                        fireballPosition.z += 1f;
+                        fireball = Instantiate(fireballPrefab) as GameObject;
+                        fireball.transform.position = fireballPosition;
+                    }
+                }
+
                 if(hit.distance < 5f) {
                     float rotationAroundY = Random.Range(0, 360);
                     this.transform.Rotate(new Vector3(0, rotationAroundY, 0));
