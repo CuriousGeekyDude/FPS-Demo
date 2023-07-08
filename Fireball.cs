@@ -12,6 +12,16 @@ public class Fireball : MonoBehaviour
         
     }
 
+    void OnTriggerEnter(Collider hitObject)
+    {
+        PlayerChar scriptOfPlayer = hitObject.GetComponent<PlayerChar>();
+
+        if(scriptOfPlayer != null) {
+            Debug.Log("Player is hit!");
+        }
+        GameObject.Destroy(this.transform.gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {

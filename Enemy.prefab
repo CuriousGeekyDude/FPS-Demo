@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4833fe93c3dbba04b9ab22f2be2cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueOfDisplacementZ: 0.2
+  valueOfDisplacementZ: 0.1
+  fireballPrefab: {fileID: 0}
   isAlive: 1
 --- !u!143 &331951868136287484
 CharacterController:

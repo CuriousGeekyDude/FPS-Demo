@@ -26,30 +26,33 @@ public class AITarget : MonoBehaviour
 
     private void AIMovement()
     {
-        if(isAlive == true) {
+            if(isAlive == true) {
 
-            this.transform.Translate(0, 0, valueOfDisplacementZ*Time.deltaTime);
-            Ray ray = new Ray(this.transform.position, this.transform.forward);
-            RaycastHit hit;
+                this.transform.Translate(0, 0, valueOfDisplacementZ);
+                Ray ray = new Ray(this.transform.position, this.transform.forward);
+                RaycastHit hit;
 
-            if(Physics.SphereCast(ray, 1f ,out hit)) {
+                if(Physics.SphereCast(ray, 5f ,out hit)) {
+                    
+                    if(hit.transform.GetComponent<PlayerChar>() != null) {
+                        if(fireball == null) {
+                            Vector3 fireballPosition = this.transform.position; //The bug with fireball most likely stems from this!
+                            fireballPosition.z += 1f;
+                            fireball = Instantiate(fireballPrefab) as GameObject;
+                            fireball.transform.position = fireballPosition;
+                            fireball.transform.rotation = this.transform.rotation;
+                        }
+                    }
                 
-                if(hit.transform.GetComponent<PlayerChar>()) {
-                    if(fireball == null) {
-                        Vector3 fireballPosition = this.transform.position;
-                        fireballPosition.z += 1f;
-                        fireball = Instantiate(fireballPrefab) as GameObject;
-                        fireball.transform.position = fireballPosition;
+                    else {
+                        if(hit.distance < 5f) {
+                            float rotationAroundY = Random.Range(0, 360);
+                            this.transform.Rotate(new Vector3(0, rotationAroundY, 0));
+                        }
                     }
                 }
 
-                if(hit.distance < 5f) {
-                    float rotationAroundY = Random.Range(0, 360);
-                    this.transform.Rotate(new Vector3(0, rotationAroundY, 0));
-                }
-            }
-        }
-
+            }   
     }
     void Start()
     {

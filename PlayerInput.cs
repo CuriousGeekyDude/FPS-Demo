@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float sensitivityMouse = 9.0f;
     [SerializeField] private float speed = 6.0f;
     [SerializeField] private CharacterController charController;
-    [SerializeField] private float gravity = -9.8f;
+    [SerializeField] private float gravity = 0f;
     // Start is called before the first frame update
     void Start()
     {
