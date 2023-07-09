@@ -32,7 +32,7 @@ public class AITarget : MonoBehaviour
                 Ray ray = new Ray(this.transform.position, this.transform.forward);
                 RaycastHit hit;
 
-                if(Physics.SphereCast(ray, 5f ,out hit)) {
+                if(Physics.SphereCast(ray, 0.75f ,out hit)) {
                     
                     if(hit.transform.GetComponent<PlayerChar>() != null) {
                         if(fireball == null) {
