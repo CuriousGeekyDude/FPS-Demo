@@ -36,15 +36,14 @@ public class AITarget : MonoBehaviour
                     
                     if(hit.transform.GetComponent<PlayerChar>() != null) {
                         if(fireball == null) {
-                            Vector3 fireballPosition = this.transform.position; //The bug with fireball most likely stems from this!
-                            fireballPosition.z += 1f;
+                            Vector3 fireballPosition = this.transform.TransformPoint(Vector3.forward*1.5f);
                             fireball = Instantiate(fireballPrefab) as GameObject;
                             fireball.transform.position = fireballPosition;
                             fireball.transform.rotation = this.transform.rotation;
                         }
                     }
                 
-                    else {
+                    else {                    
                         if(hit.distance < 5f) {
                             float rotationAroundY = Random.Range(0, 360);
                             this.transform.Rotate(new Vector3(0, rotationAroundY, 0));
