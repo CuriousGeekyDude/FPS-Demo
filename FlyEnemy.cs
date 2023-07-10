@@ -13,7 +13,7 @@ public class FlyEnemy : MonoBehaviour
             return false;
         }
 
-        var distanceInPlaneOfCircle = Mathf.Sqrt(point.x*point.x + point.y*point.y);
+        var distanceInPlaneOfCircle = Mathf.Sqrt(point.x*point.x + point.z*point.z);
 
         if(distanceInPlaneOfCircle < 25) {
             return true;
