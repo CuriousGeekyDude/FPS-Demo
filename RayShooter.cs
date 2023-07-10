@@ -43,11 +43,17 @@ public class RayShooter : MonoBehaviour
                 AITarget target = hitObject.GetComponent<AITarget>();
                 FlyEnemy Target = hitObject.GetComponent<FlyEnemy>();
 
-                if(target != null || Target != null) {
+                if(target != null) {
                     target.Die();
                 }
                 else {
-                    StartCoroutine(sphereShooter(hit.point));
+                    if(Target != null) {
+                        Target.Die();
+                    }
+                    
+                    else {
+                        StartCoroutine(sphereShooter(hit.point));
+                    }
                 }
             }
 
