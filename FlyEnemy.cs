@@ -44,7 +44,7 @@ public class FlyEnemy : MonoBehaviour
     }
 
 
-    private IEnumerator die()
+    private IEnumerator Die()
     {
         isAlive = false;
         yield return new WaitForSeconds(2f);
