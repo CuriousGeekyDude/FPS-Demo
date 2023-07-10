@@ -37,6 +37,13 @@ public class FlyEnemy : MonoBehaviour
     }
 
 
+    private IEnumerator die()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Object.Destroy(this.transform.gameObject);
+    }
+
     void Start()
     {
         
