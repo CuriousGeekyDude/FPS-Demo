@@ -39,7 +39,7 @@ public class FlyEnemy : MonoBehaviour
         }
 
         else {
-            
+            var pos = this.transform.Translate(new Vector3(0, 0, 0.05f));
         }
     }
 
