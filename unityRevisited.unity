@@ -1758,6 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 331951868136287482, guid: 8c01bca88ac95644da435ea514c6f47c, type: 3}
+  flyEnemyPrefab: {fileID: 1464979361849580287, guid: 6726334971fa5cb44bdb2f14946345f9, type: 3}
 --- !u!65 &1763951554
 BoxCollider:
   m_ObjectHideFlags: 0
