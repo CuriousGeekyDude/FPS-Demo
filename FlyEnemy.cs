@@ -9,7 +9,7 @@ public class FlyEnemy : MonoBehaviour
 
     private bool IsInInnerCircleFloor(Vector3 point, float planeOfCircle)
     {
-        if(point.z != planeOfCircle) {
+        if(point.y != planeOfCircle) {
             return false;
         }
 
@@ -21,18 +21,18 @@ public class FlyEnemy : MonoBehaviour
         else {return false;}
     }
 
-
-/*    private void AIMovement(float planeOfFlight)
+/*
+    private void AIMovement(float planeOfFlight)
     {
-        var pos = this.transform.TransformPoint(Vector3.forward*2f);
+        var pos = this.transform.TransformPoint(new Vector3(0, 1f, 0)*2f);
 
         if(IsInInnerCircleFloor(pos, planeOfFlight)) {
-            this.transform.Translate(new Vector3(0, 0, valueOfDisplacementZ));
+            this.transform.Translate(new Vector3(0, valueOfDisplacementZ, 0));
             return;
         }
         else {
-            var valueOfRotationY = Random.Range(0, 360);
-            this.transform.Rotate(new Vector3(0, valueOfRotationY, 0));
+            var valueOfRotationZ = Random.Range(0, 360);
+            this.transform.Rotate(new Vector3(0, 0, valueOfRotationZ));
         }
     }
 */
