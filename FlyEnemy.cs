@@ -21,7 +21,7 @@ public class FlyEnemy : MonoBehaviour
         else {return false;}
     }
 
-/*
+
     private void AIMovement(float planeOfFlight)
     {
         var pos = this.transform.TransformPoint(new Vector3(0, 1f, 0)*2f);
@@ -35,7 +35,8 @@ public class FlyEnemy : MonoBehaviour
             this.transform.Rotate(new Vector3(0, 0, valueOfRotationZ));
         }
     }
-*/
+
+
     void Start()
     {
         
