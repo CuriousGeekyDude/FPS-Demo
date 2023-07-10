@@ -41,8 +41,9 @@ public class RayShooter : MonoBehaviour
             if(Physics.Raycast(ray, out hit)) {
                 GameObject hitObject = hit.transform.gameObject;
                 AITarget target = hitObject.GetComponent<AITarget>();
+                FlyEnemy Target = hitObject.GetComponent<FlyEnemy>();
 
-                if(target != null) {
+                if(target != null || Target != null) {
                     target.Die();
                 }
                 else {
