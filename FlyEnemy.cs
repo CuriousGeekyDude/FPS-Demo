@@ -39,7 +39,7 @@ public class FlyEnemy : MonoBehaviour
         }
 
         else {
-            this.transform.Translate(new Vector3(0, 0, 0.05f));
+            this.transform.Translate(new Vector3(0, 0, 0.04f));
         }
     }
 
@@ -57,7 +57,7 @@ public class FlyEnemy : MonoBehaviour
     {
         StartCoroutine(die());
     }
-    
+
     void Start()
     {
         
