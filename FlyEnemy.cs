@@ -6,6 +6,9 @@ public class FlyEnemy : MonoBehaviour
 {
     
     [SerializeField] private float valueOfDisplacementZ = 0.1f;
+    [SerializeField] private GameObject fireballPrefab = null;
+    private GameObject fireball;
+    
     [SerializeField] private bool isAlive = true;
 
     private bool IsInInnerCircleFloor(Vector3 point, float planeOfCircle)
@@ -27,6 +30,21 @@ public class FlyEnemy : MonoBehaviour
     {
         if(isAlive == true) {
             var pos = this.transform.TransformPoint(new Vector3(0, 1f, 0)*2f);
+
+            Ray ray = new Ray(this.transform.position, this.transform.forward);
+            RaycastHit hit;
+
+            if(Physics.SphereCast(ray, 1f ,out hit)) {
+                    
+                if(hit.transform.GetComponent<PlayerChar>() != null) {
+                    if(fireball == null) {
+                        Vector3 fireballPosition = this.transform.TransformPoint(Vector3.forward*1.5f);
+                        fireball = Instantiate(fireballPrefab) as GameObject;
+                        fireball.transform.position = fireballPosition;
+                        fireball.transform.rotation = this.transform.rotation;
+                    }
+                }
+            }
 
             if(IsInInnerCircleFloor(pos, planeOfFlight)) {
                 this.transform.Translate(new Vector3(0, valueOfDisplacementZ, 0));
