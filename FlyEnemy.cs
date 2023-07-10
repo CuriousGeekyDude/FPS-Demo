@@ -7,9 +7,9 @@ public class FlyEnemy : MonoBehaviour
     
     [SerializeField] private float valueOfDisplacementZ = 0.1f;
 
-    private bool IsInInnerCircleFloor(Vector3 point,float planeOfCircle)
+    private bool IsInInnerCircleFloor(Vector3 point, float planeOfCircle)
     {
-        if(point.y != planeOfCircle) {
+        if(point.z != planeOfCircle) {
             return false;
         }
 
@@ -22,11 +22,20 @@ public class FlyEnemy : MonoBehaviour
     }
 
 
-    private void AIMovement()
+/*    private void AIMovement(float planeOfFlight)
     {
-        
-    }
+        var pos = this.transform.TransformPoint(Vector3.forward*2f);
 
+        if(IsInInnerCircleFloor(pos, planeOfFlight)) {
+            this.transform.Translate(new Vector3(0, 0, valueOfDisplacementZ));
+            return;
+        }
+        else {
+            var valueOfRotationY = Random.Range(0, 360);
+            this.transform.Rotate(new Vector3(0, valueOfRotationY, 0));
+        }
+    }
+*/
     void Start()
     {
         
@@ -35,6 +44,6 @@ public class FlyEnemy : MonoBehaviour
     
     void Update()
     {
-        
+        AIMovement(14f);
     }
 }
