@@ -44,7 +44,7 @@ public class FlyEnemy : MonoBehaviour
     }
 
 
-    private IEnumerator Die()
+    private IEnumerator die()
     {
         isAlive = false;
         yield return new WaitForSeconds(2f);
@@ -52,6 +52,12 @@ public class FlyEnemy : MonoBehaviour
         Object.Destroy(this.transform.gameObject);
     }
 
+
+    public void Die()
+    {
+        StartCoroutine(die());
+    }
+    
     void Start()
     {
         
