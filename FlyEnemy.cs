@@ -5,6 +5,8 @@ using UnityEngine;
 public class FlyEnemy : MonoBehaviour
 {
     
+    [SerializeField] private float valueOfDisplacementZ = 0.1f;
+
     private bool IsInInnerCircleFloor(Vector3 point,float planeOfCircle)
     {
         if(point.y != planeOfCircle) {
@@ -19,6 +21,11 @@ public class FlyEnemy : MonoBehaviour
         else {return false;}
     }
 
+
+    private void AIMovement()
+    {
+        
+    }
 
     void Start()
     {
