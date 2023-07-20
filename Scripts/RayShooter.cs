@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RayShooter : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class RayShooter : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) {
+        if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             Vector3 point = new Vector3(cameraWidth/2, cameraHeight/2, 0);
             Ray ray = cam.ScreenPointToRay(point);
             RaycastHit hit;
