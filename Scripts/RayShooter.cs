@@ -25,8 +25,6 @@ public class RayShooter : MonoBehaviour
         cam = GetComponent<Camera>();
         cameraWidth = cam.pixelWidth;
         cameraHeight = cam.pixelHeight;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     
