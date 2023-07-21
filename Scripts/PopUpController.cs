@@ -15,4 +15,14 @@ public class PopUpController : MonoBehaviour
     {
         
     }
+
+    public void PopUpActivate()
+    {
+        this.transform.gameObject.SetActive(true);
+    }
+
+    public void PopUpDeactivate()
+    {
+        this.transform.gameObject.SetActive(false);
+    }
 }
