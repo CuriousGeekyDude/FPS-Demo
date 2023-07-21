@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClosePopUp : MonoBehaviour
 {
+    [SerializeField] private PopUpController popUpWindow;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class ClosePopUp : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void closePopUp()
+    {
+        popUpWindow.PopUpDeactivate();
     }
 }
