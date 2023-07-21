@@ -6,6 +6,8 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timePastSinceStart;
+    [SerializeField] private PopUpController popUp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,4 +20,8 @@ public class UIController : MonoBehaviour
     {
         timePastSinceStart.text = $"Seconds: {Time.realtimeSinceStartup.ToString()}";
     }
+    public void OnOpenSettings() {
+        popUp.PopUpActivate();
+    }
+
 }
