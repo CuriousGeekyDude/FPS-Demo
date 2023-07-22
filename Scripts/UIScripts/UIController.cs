@@ -5,7 +5,7 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private TMP_Text timePastSinceStart;
+    [SerializeField] private TMP_Text numberOfEnemiesKilled;
     [SerializeField] private PopUpController popUpWindow;
     private int score;
 
@@ -23,13 +23,13 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timePastSinceStart.text = $"Score: {score.ToString()}";
+        numberOfEnemiesKilled.text = $"Score: {score.ToString()}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        timePastSinceStart.text = $"Score: {score.ToString()}";
+        numberOfEnemiesKilled.text = $"Score: {score.ToString()}";
     }
     public void OnOpenSettings() {
         popUpWindow.PopUpActivate();
