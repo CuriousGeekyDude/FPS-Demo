@@ -5,10 +5,21 @@ using UnityEngine;
 public class AITarget : MonoBehaviour
 {
     
-    [SerializeField] private float valueOfDisplacementZ = 0.1f;
+    private float valueOfDisplacementZ = 0.1f;
     [SerializeField] private GameObject fireballPrefab = null;
     private GameObject fireball;
     [SerializeField] private bool isAlive = true;
+
+
+    void OnEnable()
+    {
+        Messenger<float>.AddListener(GameEvents.SPEED_CHANGED, ChangeSpeed);
+    }
+
+    void OnDisable()
+    {
+        Messenger<float>.AddListener(GameEvents.SPEED_CHANGED, ChangeSpeed);
+    }
 
     private IEnumerator die()
     {
@@ -54,6 +65,12 @@ public class AITarget : MonoBehaviour
 
             }   
     }
+
+    private void ChangeSpeed(float newDisplacement)
+    {
+        valueOfDisplacementZ = newDisplacement;
+    }
+
     void Start()
     {
         

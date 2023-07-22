@@ -8,8 +8,19 @@ public class FlyEnemy : MonoBehaviour
     [SerializeField] private float valueOfDisplacementZ = 0.1f;
     [SerializeField] private GameObject fireballPrefab = null;
     private GameObject fireball;
-    
     [SerializeField] private bool isAlive = true;
+
+
+    void OnEnable()
+    {
+        Messenger<float>.AddListener(GameEvents.SPEED_CHANGED, ChangeSpeed);
+    }
+
+    void OnDisable()
+    {
+        Messenger<float>.AddListener(GameEvents.SPEED_CHANGED, ChangeSpeed);
+    }
+
 
     private bool IsInInnerCircleFloor(Vector3 point, float planeOfCircle)
     {
@@ -75,6 +86,11 @@ public class FlyEnemy : MonoBehaviour
     {
         StartCoroutine(die());
     }
+
+    private void ChangeSpeed(float newDisplacement)
+    {
+        valueOfDisplacementZ = newDisplacement;
+    }   
 
     void Start()
     {
