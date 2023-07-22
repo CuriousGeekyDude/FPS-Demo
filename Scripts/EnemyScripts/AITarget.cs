@@ -5,7 +5,7 @@ using UnityEngine;
 public class AITarget : MonoBehaviour
 {
     
-    private float valueOfDisplacementZ = 0.1f;
+    [SerializeField] private float valueOfDisplacementZ = 0.1f;
     [SerializeField] private GameObject fireballPrefab = null;
     private GameObject fireball;
     [SerializeField] private bool isAlive = true;
