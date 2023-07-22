@@ -7,18 +7,29 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timePastSinceStart;
     [SerializeField] private PopUpController popUpWindow;
+    private int score;
 
+
+    void OnEnable()
+    {
+        Messenger.AddListener(GameEvents.ENEMY_HIT, ScoreUpdate);
+    }
+
+    void OnDisable()
+    {
+        Messenger.RemoveListener(GameEvents.ENEMY_HIT, ScoreUpdate);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        timePastSinceStart.text = $"Seconds: {Time.realtimeSinceStartup.ToString()}";
+        timePastSinceStart.text = $"Score: {score.ToString()}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        timePastSinceStart.text = $"Seconds: {Time.realtimeSinceStartup.ToString()}";
+        timePastSinceStart.text = $"Score: {score.ToString()}";
     }
     public void OnOpenSettings() {
         popUpWindow.PopUpActivate();
@@ -27,5 +38,10 @@ public class UIController : MonoBehaviour
     public void closePopUp()
     {
         popUpWindow.PopUpDeactivate();
+    }
+
+    private void ScoreUpdate()
+    {
+        ++score;
     }
 }

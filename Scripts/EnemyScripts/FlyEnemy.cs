@@ -66,8 +66,8 @@ public class FlyEnemy : MonoBehaviour
     {
         isAlive = false;
         yield return new WaitForSeconds(2f);
-
         Object.Destroy(this.transform.gameObject);
+        Messenger.Broadcast(GameEvents.ENEMY_HIT);
     }
 
 
