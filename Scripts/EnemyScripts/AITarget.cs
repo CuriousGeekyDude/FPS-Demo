@@ -14,9 +14,9 @@ public class AITarget : MonoBehaviour
     {
         isAlive = false;
         this.transform.Rotate(new Vector3(80, 0, 0));
+        Messenger.Broadcast(GameEvents.ENEMY_HIT);
         yield return new WaitForSeconds(1);
         Destroy(this.transform.gameObject);
-        Messenger.Broadcast(GameEvents.ENEMY_HIT);
     }
 
     public void Die()

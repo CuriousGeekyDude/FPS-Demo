@@ -65,9 +65,9 @@ public class FlyEnemy : MonoBehaviour
     private IEnumerator die()
     {
         isAlive = false;
+        Messenger.Broadcast(GameEvents.ENEMY_HIT);
         yield return new WaitForSeconds(2f);
         Object.Destroy(this.transform.gameObject);
-        Messenger.Broadcast(GameEvents.ENEMY_HIT);
     }
 
 

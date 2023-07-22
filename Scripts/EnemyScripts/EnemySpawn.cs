@@ -24,10 +24,12 @@ public class EnemySpawn : MonoBehaviour
         if(enemy == null) {
             enemy = Instantiate(enemyPrefab) as GameObject;
             enemy.transform.position = new Vector3(0, 1.5f, 0);
+            Messenger.Broadcast(GameEvents.ENEMY_SPAWNED);
         }
 
         if(flyEnemy == null) {
             flyEnemy = Instantiate(flyEnemyPrefab) as GameObject;
+            Messenger.Broadcast(GameEvents.ENEMY_SPAWNED);
         }
         
     }
