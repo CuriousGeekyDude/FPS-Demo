@@ -1466,6 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907fcbe9d79cb7746873ec86e3db1de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 990781999}
 --- !u!1 &582114975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,10 +2401,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 741431493}
   m_HandleRect: {fileID: 187733517}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 1
   m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
