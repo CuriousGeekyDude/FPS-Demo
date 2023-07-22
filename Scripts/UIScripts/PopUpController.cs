@@ -17,6 +17,7 @@ public class PopUpController : MonoBehaviour
     void Update()
     {
         Messenger<float>.Broadcast(GameEvents.SPEED_CHANGED, slider.value);
+        Messenger<float>.Broadcast(GameEvents.SPAWNED_SPEED, slider.value);
     }
 
     public void PopUpActivate()
