@@ -3,7 +3,7 @@
 ## About
 This is a simple demo of an FPS game inspired by the Doom game.
 
-### Implementation
+### Gameplay mechanics
 #### AI enemies
 There are 2 AI enemies that are moving randomly about. As you can see in the following 2 images, one of them is moving above the ground and the other is on the ground: 
 
@@ -14,7 +14,7 @@ There are 2 AI enemies that are moving randomly about. As you can see in the fol
 ![Second](https://github.com/CuriousGeekyDude/FPS-Game/assets/130616138/014d0f4d-4687-42d9-a499-07a10a43bbb8)
 
 
-The one that is on the ground is using sphere ray-casting as a way to avoid collision with the walls. The one above the ground is limited by the perimeter of a circle that is defined in such a way so that the AI stays within the limits of our view and of course the area of the scene. We can shoot spheres at these enemies. The moment one of them is shot with a sphere, they are destroyed and a new one is respawned. 
+The one that is on the ground is using sphere ray-casting as a way to avoid collision with the walls. The one above the ground is limited by the perimeter of a circle that is defined in such a way so that the AI stays within the limits of our view and of course the area of the scene. We can shoot spheres at these enemies. The moment one of them is shot with a sphere, they are destroyed and a new one is respawned. AI enemies can also shoot at the player. They detect the player by sphere ray casting and then shoot an orange sphere. If it does hit the player then we see the message "Player is hit!" in the console section.
 
 #### UI
 Instead of using the immediate mode for our GUI, we are using Unity UI. On the top right corner you can see the 'gear' symbol which represents our setting. On the top left corner you can see a cube image with a number next to it. That is used to tell us how many enemies are still in the scene. On the bottom right corner you can see text that says "score: ". That is used to indicate how many enemies we have destroyed since the start of the game.
